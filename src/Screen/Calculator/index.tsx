@@ -6,6 +6,7 @@ import {
   useColorScheme,
   View,
   TextInput,
+  Alert,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -23,10 +24,23 @@ function Calculator(): React.JSX.Element {
   const [outPut, setOutPut] = useState<number | undefined>(0);
 
   const handleSubmit = () => {
-    let numbers = text.match(/\d+/g); // Extracts all numbers
-    let sum: number | undefined = numbers
-      ?.map(Number)
-      ?.reduce((a, b) => a + b, 0);
+    let numbers = text.match(/-?\d+/g)?.map(Number); // Extracts all numbers
+
+    if (!numbers) {
+      setOutPut(0); // No numbers in the input, set output to 0
+      return;
+    }
+
+    // Check for negative numbers
+    let negativeNumbers = numbers.filter(n => n < 0);
+    if (negativeNumbers.length > 0) {
+      Alert.alert(
+        `negative numbers not allowed: ${negativeNumbers.join(', ')}`,
+      );
+    }
+
+    // Calculate the sum if there are no negative numbers
+    let sum = numbers.reduce((a, b) => a + b, 0);
     setOutPut(sum);
   };
 
