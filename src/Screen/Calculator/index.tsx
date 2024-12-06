@@ -31,7 +31,7 @@ function Calculator(): React.JSX.Element {
       return;
     }
 
-    // Check for negative numbers if negative number exist show alert
+    // Check for negative numbers if negative number exist show alert and return
     let negativeNumbers = numbers.filter(n => n < 0);
     if (negativeNumbers.length > 0) {
       setOutPut(0);
