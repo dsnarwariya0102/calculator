@@ -27,11 +27,11 @@ function Calculator(): React.JSX.Element {
     let numbers = text.match(/-?\d+/g)?.map(Number); // Extracts all numbers
 
     if (!numbers) {
-      setOutPut(0); // No numbers in the input, set output to 0
+      setOutPut(0); // No numbers in the input, set output to 0 and return
       return;
     }
 
-    // Check for negative numbers
+    // Check for negative numbers if negative number exist show alert
     let negativeNumbers = numbers.filter(n => n < 0);
     if (negativeNumbers.length > 0) {
       Alert.alert(
