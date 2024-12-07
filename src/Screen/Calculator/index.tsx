@@ -41,9 +41,11 @@ function Calculator(): React.JSX.Element {
         <Text style={styles.sectionTitle}>Calculator</Text>
 
         <View style={styles.outputContainer}>
-          <Text style={styles.sectionDescription} testID="output">
-            {outPut}
-          </Text>
+          {outPut !== undefined && outPut !== null && outPut > 0 && (
+            <Text style={styles.sectionDescription} testID="output">
+              {outPut}
+            </Text>
+          )}
         </View>
 
         <View style={styles.textInputContainer}>

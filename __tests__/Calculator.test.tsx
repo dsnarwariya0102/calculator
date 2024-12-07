@@ -26,5 +26,9 @@ describe('NumberSum Component', () => {
     // Simulate entering text without numbers
     fireEvent.changeText(inputField, 'No numbers here!');
     fireEvent.press(submitButton);
+
+    // Assert that output is not displayed
+    const output = queryByTestId('output');
+    expect(output).toBeNull(); // No output should be rendered
   });
 });
