@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {Button} from '../../Component';
+import {Button, TextInputBox} from '../../Component';
 import {styles} from './indexCss';
 
 function Calculator(): React.JSX.Element {
@@ -47,10 +47,9 @@ function Calculator(): React.JSX.Element {
         </View>
 
         <View style={styles.textInputContainer}>
-          <TextInput
+          <TextInputBox
             testID="input-field"
-            style={styles.input}
-            onChangeText={txt => setText(txt)}
+            onChangeText={(txt: string) => setText(txt)}
             value={text}
             placeholder="Enter Number"
             keyboardType="numeric"

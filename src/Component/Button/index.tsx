@@ -1,8 +1,14 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React, {memo} from 'react';
 
-const Button = (props: any) => {
-  const {onPress, testID, Title} = props;
+interface ButtonProps {
+  onPress?: () => void;
+  testID?: String;
+  Title?: String;
+}
+
+const Button: React.FC<ButtonProps> = props => {
+  const {onPress = () => {}, testID, Title} = props;
 
   return (
     <TouchableOpacity

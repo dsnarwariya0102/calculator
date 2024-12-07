@@ -27,14 +27,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
   },
-  input: {
-    height: 40,
-    width: 200,
-    margin: 12,
-    borderWidth: 0.5,
-    padding: 10,
-    borderRadius: 5,
-  },
   textInputContainer: {
     marginVertical: 30,
     marginHorizontal: 20,
