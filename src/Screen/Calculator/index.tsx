@@ -34,9 +34,11 @@ function Calculator(): React.JSX.Element {
     // Check for negative numbers if negative number exist show alert
     let negativeNumbers = numbers.filter(n => n < 0);
     if (negativeNumbers.length > 0) {
+      setOutPut(0);
       Alert.alert(
         `negative numbers not allowed: ${negativeNumbers.join(', ')}`,
       );
+      return;
     }
 
     // Calculate the sum if there are no negative numbers
@@ -55,10 +57,12 @@ function Calculator(): React.JSX.Element {
         <Text style={styles.sectionTitle}>Calculator</Text>
 
         <View style={styles.outputContainer}>
-          {outPut !== undefined && outPut !== null && outPut > 0 && (
+          {outPut !== undefined && outPut !== null && outPut > 0 ? (
             <Text style={styles.sectionDescription} testID="output">
               {outPut}
             </Text>
+          ) : (
+            <Text style={styles.sectionDescription}>0</Text>
           )}
         </View>
 
